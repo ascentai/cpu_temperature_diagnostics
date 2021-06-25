@@ -1,8 +1,4 @@
-# cpu_temperature_diagnostics
-Collect cpu temperature informations and republish them as diagnostics
-
-## Launch file
-````
+<!-- Example launch file -->
 <launch>
       <node name="cpu_temperature_diagnostics" pkg="cpu_temperature_diagnostics" type="cpu_temperature_diagnostics_node" respawn="false">
             <!--Allows to specify the expect prefix for the sensor chips used to get CPU temperature
@@ -21,4 +17,3 @@ Collect cpu temperature informations and republish them as diagnostics
 
       </node>
 </launch>
-````
