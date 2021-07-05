@@ -35,8 +35,8 @@ void CpuTemperatureDiagnostic::diagnostics_callback(
                  std::to_string(int(read.temperature_)) + "°C " +
                      status_string);
     }
-    std::string summary = is_ok ? "CPU Temperature is OK" :
-                                  "CPU Temperature is too hot";
+    std::string summary =
+        is_ok ? "CPU Temperature is OK" : "CPU Temperature is too hot";
 
     is_ok ? stat.summary(diagnostic_msgs::DiagnosticStatus::OK, summary) :
             stat.summary(diagnostic_msgs::DiagnosticStatus::ERROR, summary);

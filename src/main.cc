@@ -81,7 +81,7 @@ int main(int argc, char* argv[])
     {
         std::string err = "prefix parameter is missing";
         ROS_ERROR_STREAM(err);
-        throw std::runtime_error(err);
+        exit(1);
     }
 
     auto diag_vec = create_diagnostics(prefix);

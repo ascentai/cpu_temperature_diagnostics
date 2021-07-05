@@ -14,5 +14,5 @@ jobs:
       rosdistro: "melodic"
       pkgToTest: ""
       name: "install"
-      recursionDepth: 0
       installMode: true
+      runClangTidy: true

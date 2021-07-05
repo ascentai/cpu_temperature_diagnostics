@@ -12,7 +12,18 @@ class CpuTemperatureDiagnostic
   public:
     CpuTemperatureDiagnostic(SensorChip& chip);
     void emit_diagnostics();
+    /**
+     * @brief Overrides the chip read critical temperature
+     *
+     * @param critical_temp New critical temperature
+     */
     void critical_temp_override(int critical_temp);
+
+    /**
+     * @brief Overrides the chip read maximum temperature
+     *
+     * @param max_temp New maximum temperature
+     */
     void max_temp_override(int max_temp);
 
   private:

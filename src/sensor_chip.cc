@@ -14,9 +14,10 @@ SensorChip::SensorChip(const sensors_chip_name* chip,
   : chip_name_(chip)
 {
     int feature_number = 0;
-    const sensors_feature* feature;
-    while ((feature = sensors_get_features(chip_name_, &feature_number)) !=
-           nullptr)
+    for (const sensors_feature* feature =
+             sensors_get_features(chip_name_, &feature_number);
+         feature != nullptr;
+         feature = sensors_get_features(chip_name_, &feature_number))
     {
         auto feat = TemperatureFeature::make_temp_feature(
             chip_name_, feature, default_critical_temp, defaut_max_temp);
@@ -59,4 +60,23 @@ void SensorChip::max_temp_override(double max_temp)
         feature.set_max_temp(max_temp);
     }
 }
+namespace sensors_chip_factory
+{
+std::vector<SensorChip> get_chips_with_prefix(std::string& name)
+{
+    std::vector<SensorChip> valid_chips;
+    int chip_number = 0;
+    for (const sensors_chip_name* chip_name =
+             sensors_get_detected_chips(nullptr, &chip_number);
+         chip_name != nullptr;
+         chip_name = sensors_get_detected_chips(nullptr, &chip_number))
+    {
+        if (std::string(chip_name->prefix) == name)
+        {
+            valid_chips.push_back(SensorChip(chip_name));
+        }
+    }
+    return valid_chips;
+}
+}  // namespace sensors_chip_factory
 }  // namespace cpu_temperature_diagnostics
