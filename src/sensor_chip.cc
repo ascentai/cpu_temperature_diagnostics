@@ -15,7 +15,7 @@ SensorChip::SensorChip(const sensors_chip_name* chip,
 {
     int feature_number = 0;
     const sensors_feature* feature;
-    while ((feature = sensors_get_features(chip_name_, &feature_number)) != 0)
+    while ((feature = sensors_get_features(chip_name_, &feature_number)) != nullptr)
     {
         auto feat = TemperatureFeature::make_temp_feature(
             chip_name_, feature, default_critical_temp, defaut_max_temp);

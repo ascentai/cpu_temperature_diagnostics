@@ -18,7 +18,7 @@ std::optional<double> read_subfeature(const sensors_chip_name* chip_name,
     }
     else
     {
-        return { value_read };
+        return value_read;
     }
 }
 }  // namespace
@@ -51,7 +51,7 @@ TemperatureFeature::TemperatureFeature(const sensors_chip_name* chip_name,
     int subf_num = 0;
     label_ = std::string(sensors_get_label(chip_name, feature));
     while ((subfeature = sensors_get_all_subfeatures(
-                chip_name, feature, &subf_num)) != 0)
+                chip_name, feature, &subf_num)) != nullptr)
     {
         // A not readable feature has no interrest for us
         if (subfeature->flags & SENSORS_MODE_R)
