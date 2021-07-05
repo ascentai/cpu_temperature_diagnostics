@@ -72,7 +72,7 @@ void configure_diagnostics(
 }  // namespace
 int main(int argc, char* argv[])
 {
-    sensors_init(NULL);
+    sensors_init(nullptr);
     ros::init(argc, argv, "sensors_diagnostics");
     ros::NodeHandle node_handle("~");
     std::string prefix;
