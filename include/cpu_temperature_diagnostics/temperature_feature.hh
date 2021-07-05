@@ -24,12 +24,12 @@ class TemperatureFeature
     read_temperature_info(const sensors_chip_name* chip_name) const;
     std::string get_label() const;
 
-    void set_critical_temp(int critical_temp)
+    void set_critical_temp(double critical_temp)
     {
         crit_temp_ = critical_temp;
     }
 
-    void set_max_temp(int max_temp)
+    void set_max_temp(double max_temp)
     {
         max_temp_ = max_temp;
     }

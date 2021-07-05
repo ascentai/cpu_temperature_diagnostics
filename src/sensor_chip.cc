@@ -15,7 +15,8 @@ SensorChip::SensorChip(const sensors_chip_name* chip,
 {
     int feature_number = 0;
     const sensors_feature* feature;
-    while ((feature = sensors_get_features(chip_name_, &feature_number)) != nullptr)
+    while ((feature = sensors_get_features(chip_name_, &feature_number)) !=
+           nullptr)
     {
         auto feat = TemperatureFeature::make_temp_feature(
             chip_name_, feature, default_critical_temp, defaut_max_temp);
@@ -44,14 +45,14 @@ std::string SensorChip::get_identifier() const
            std::to_string(chip_name_->addr);
 }
 
-void SensorChip::critical_temp_override(int critical_temp)
+void SensorChip::critical_temp_override(double critical_temp)
 {
     for (auto& feature : temperature_features_)
     {
         feature.set_critical_temp(critical_temp);
     }
 }
-void SensorChip::max_temp_override(int max_temp)
+void SensorChip::max_temp_override(double max_temp)
 {
     for (auto& feature : temperature_features_)
     {

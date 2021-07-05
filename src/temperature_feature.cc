@@ -83,8 +83,7 @@ temperature_info TemperatureFeature::read_temperature_info(
     const sensors_chip_name* chip_name) const
 {
     temperature_info ret_info;
-    auto temp_read = read_subfeature(chip_name, input_temp_subfeature_);
-    if (temp_read.has_value())
+    if (auto temp_read = read_subfeature(chip_name, input_temp_subfeature_))
     {
         ret_info.temperature_ = temp_read.value();
         ret_info.is_ok_ = (temp_read.value() < max_temp_);

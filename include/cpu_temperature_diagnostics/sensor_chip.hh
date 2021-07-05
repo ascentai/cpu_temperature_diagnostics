@@ -15,8 +15,8 @@ class SensorChip
                double defaut_max_temp = 85);
     std::vector<temperature_info> get_temperature_readings() const;
     std::string get_identifier() const;
-    void critical_temp_override(int critical_temp);
-    void max_temp_override(int max_temp);
+    void critical_temp_override(double critical_temp);
+    void max_temp_override(double max_temp);
 
   private:
     std::vector<TemperatureFeature> temperature_features_;
