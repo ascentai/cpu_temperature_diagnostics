@@ -34,7 +34,7 @@ class SensorChip
 
 namespace sensors_chip_factory
 {
-std::vector<SensorChip> get_chips_with_prefix(std::string& name);
+std::vector<SensorChip> get_chips_with_prefix(const std::string& name);
 }  // namespace sensors_chip_factory
 
 }  // namespace cpu_temperature_diagnostics

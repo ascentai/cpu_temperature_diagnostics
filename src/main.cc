@@ -10,7 +10,7 @@ namespace
 {
 std::vector<
     std::unique_ptr<cpu_temperature_diagnostics::CpuTemperatureDiagnostic>>
-create_diagnostics(std::string prefix)
+create_diagnostics(std::string& prefix)
 {
     auto chips = cpu_temperature_diagnostics::sensors_chip_factory::
         get_chips_with_prefix(prefix);
@@ -46,8 +46,8 @@ void configure_diagnostics(
         std::unique_ptr<cpu_temperature_diagnostics::CpuTemperatureDiagnostic>>&
         diag_vec)
 {
-    
-    if (int max_temp_override; node_handle.getParam("max_temp_override", max_temp_override))
+    if (int max_temp_override;
+        node_handle.getParam("max_temp_override", max_temp_override))
     {
         ROS_WARN_STREAM("Maximum temperature set to " +
                         std::to_string(max_temp_override));
@@ -57,7 +57,8 @@ void configure_diagnostics(
         }
     }
 
-    if (int critical_temp_override; node_handle.getParam("critical_temp_override", critical_temp_override))
+    if (int critical_temp_override;
+        node_handle.getParam("critical_temp_override", critical_temp_override))
     {
         ROS_WARN_STREAM("Critical temperature set to " +
                         std::to_string(critical_temp_override));

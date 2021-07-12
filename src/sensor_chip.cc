@@ -10,7 +10,7 @@ namespace cpu_temperature_diagnostics
 {
 SensorChip::SensorChip(const sensors_chip_name* chip,
                        double default_critical_temp,
-                       double defaut_max_temp)
+                       double default_max_temp)
   : chip_name_(chip)
 {
     int feature_number = 0;
@@ -20,7 +20,7 @@ SensorChip::SensorChip(const sensors_chip_name* chip,
          feature = sensors_get_features(chip_name_, &feature_number))
     {
         if (auto feat = TemperatureFeature::make_temp_feature(
-            chip_name_, feature, default_critical_temp, defaut_max_temp))
+                chip_name_, feature, default_critical_temp, default_max_temp))
         {
             temperature_features_.push_back(*feat);
         }
@@ -61,7 +61,7 @@ void SensorChip::max_temp_override(double max_temp)
 }
 namespace sensors_chip_factory
 {
-std::vector<SensorChip> get_chips_with_prefix(std::string& name)
+std::vector<SensorChip> get_chips_with_prefix(const std::string& name)
 {
     std::vector<SensorChip> valid_chips;
     int chip_number = 0;
