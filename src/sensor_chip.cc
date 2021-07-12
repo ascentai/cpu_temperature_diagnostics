@@ -19,9 +19,8 @@ SensorChip::SensorChip(const sensors_chip_name* chip,
          feature != nullptr;
          feature = sensors_get_features(chip_name_, &feature_number))
     {
-        auto feat = TemperatureFeature::make_temp_feature(
-            chip_name_, feature, default_critical_temp, defaut_max_temp);
-        if (feat.has_value())
+        if (auto feat = TemperatureFeature::make_temp_feature(
+            chip_name_, feature, default_critical_temp, defaut_max_temp))
         {
             temperature_features_.push_back(*feat);
         }
