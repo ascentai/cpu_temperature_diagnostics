@@ -16,11 +16,11 @@ class SensorChip
      * @param chip  chip that the SensorChip object is abstracting
      * @param default_critical_temp Critical temp used if not provided by the
      * chip
-     * @param defaut_max_temp Max temp used if not provided by the chip
+     * @param default_max_temp Max temp used if not provided by the chip
      */
     SensorChip(const sensors_chip_name* chip,
                double default_critical_temp = 100,
-               double defaut_max_temp = 85);
+               double default_max_temp = 85);
 
     std::vector<temperature_info> get_temperature_readings() const;
     std::string get_identifier() const;
