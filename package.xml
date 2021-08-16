@@ -6,7 +6,7 @@
 
   <maintainer email="thomas.kostas@ascent.ai">Thomas Kostas</maintainer>
 
-  <license>(c) Ascent Robotics Inc. All rights reserved.</license>
+  <license>BSD</license>
 
   <buildtool_depend>catkin</buildtool_depend>
   <depend>roscpp</depend>
