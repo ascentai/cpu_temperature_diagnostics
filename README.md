@@ -1,7 +1,18 @@
 # cpu_temperature_diagnostics
-Collect cpu temperature informations and republish them as diagnostics
+Collect CPU temperature informations and republish them as diagnostics
 
-## Launch file
+## Getting started
+1. Launch the node with the provided example launch file
+````
+roslaunch cpu_temperature_diagnostics cpu_temperature_diagnostics.launch
+````
+2. Viewing the data
+````
+rosrun rqt_runtime_monitor rqt_runtime_monitor
+````
+![Alt text](img/temp_screen.png "Title")
+
+## Launch file example
 ````
 <launch>
       <node name="cpu_temperature_diagnostics" pkg="cpu_temperature_diagnostics" type="cpu_temperature_diagnostics_node" respawn="false">
