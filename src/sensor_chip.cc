@@ -72,7 +72,7 @@ std::vector<SensorChip> get_chips_with_prefix(const std::string& name)
     {
         if (std::string(chip_name->prefix) == name)
         {
-            valid_chips.push_back(SensorChip(chip_name));
+            valid_chips.emplace_back(chip_name);
         }
     }
     return valid_chips;
