@@ -10,7 +10,7 @@ namespace cpu_temperature_diagnostics
 class CpuTemperatureDiagnostic
 {
   public:
-    CpuTemperatureDiagnostic(SensorChip& chip);
+    explicit CpuTemperatureDiagnostic(SensorChip& chip);
     void emit_diagnostics();
     /**
      * @brief Overrides the chip read critical temperature
