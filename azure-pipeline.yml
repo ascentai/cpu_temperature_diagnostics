@@ -7,12 +7,14 @@ resources:
       type: github
       name: ascentai/azure_ros_ci
       endpoint: ascentai
+      ref: swich_to_20_04
 
 jobs:
   - template: ros-template.yml@rosci
     parameters:
-      rosdistro: "melodic"
-      pkgToTest: ""
+      rosdistro: "noetic"
+      dockerImage: ""
+      pkgToTest: "20.04-noetic-cuda11.8-trt8:master"
       name: "install"
       installMode: true
       runClangTidy: true
