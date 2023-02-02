@@ -13,8 +13,8 @@ jobs:
   - template: ros-template.yml@rosci
     parameters:
       rosdistro: "noetic"
-      dockerImage: ""
-      pkgToTest: "20.04-noetic-cuda11.8-trt8:master"
+      dockerImage: "20.04-noetic-cuda11.8-trt8:master"
+      pkgToTest: ""
       name: "install"
       installMode: true
       runClangTidy: true
