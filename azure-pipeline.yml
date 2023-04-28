@@ -7,7 +7,6 @@ resources:
       type: github
       name: ascentai/azure_ros_ci
       endpoint: ascentai
-      ref: switch_to_20_04
 
 jobs:
   - template: ros-template.yml@rosci
